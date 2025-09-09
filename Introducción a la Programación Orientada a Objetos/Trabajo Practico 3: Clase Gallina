@@ -1,0 +1,21 @@
+public class Gallina {
+    int idGallina;
+    int edad;
+    int huevosPuestos;
+    
+    void ponerHuevos() {
+        huevosPuestos += 1;
+        System.out.println("La gallina: " + idGallina + " puso un huevo");
+    }
+    
+    void envejecer() {
+        edad += 1;
+        System.out.println("La gallina: " + idGallina + " cumplio un año" );
+    }
+    
+    void mostrarEstado() {
+        System.out.println("ID Gallina: " + idGallina);
+        System.out.println("Tiene: " + edad + " años");
+        System.out.println("Y puso: " + huevosPuestos + " huevos");
+    }
+}
