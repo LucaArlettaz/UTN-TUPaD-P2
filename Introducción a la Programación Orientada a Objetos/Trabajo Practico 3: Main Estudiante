@@ -1,0 +1,19 @@
+public class Principal {
+
+    public static void main(String[] args) {
+        Estudiante estudiante1 = new Estudiante();
+        estudiante1.nombre = "Luca";
+        estudiante1.apellido = "Arlettaz";
+        estudiante1.curso = "Programacion 2";
+        estudiante1.calificacion = 8.0;
+        
+        estudiante1.mostrarInfo();
+        
+        estudiante1.subirCalificacion(1);
+        estudiante1.mostrarInfo();
+        
+        estudiante1.bajarCalificacion(3);
+        estudiante1.mostrarInfo();
+
+    }
+}
