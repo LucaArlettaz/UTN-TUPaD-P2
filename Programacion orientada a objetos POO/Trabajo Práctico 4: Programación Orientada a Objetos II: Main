@@ -1,0 +1,24 @@
+public class TestEmpleado {
+    public static void main(String[] args) {
+        Empleado e1 = new Empleado(1001, "Luca Arlettaz", "Analista", 110000.0);
+
+        Empleado e2 = new Empleado("Rafael Gomez", "Desarrollador");
+
+        Empleado e3 = new Empleado(1002, "Claudia Bonato", "Gerente", 90000.0);
+
+        Empleado e4 = new Empleado("Giuliano Besson", "Soporte");
+        
+        // Actualizamos sus salarios de las 2 formas
+        e1.actualizarSalario(10.0);
+        e2.actualizarSalario(2500);
+        e3.actualizarSalario(-5.0);
+        e4.actualizarSalario(500);
+        
+        System.out.println(e1);
+        System.out.println(e2);
+        System.out.println(e3);
+        System.out.println(e4);
+        
+        System.out.println("Total de empleados creados: " + Empleado.mostrarTotalEmpleados());
+ }
+}
