@@ -1,0 +1,30 @@
+public class Principal {
+
+    public static void main(String[] args) {
+        Gallina gallina1 = new Gallina();
+        Gallina gallina2 = new Gallina();
+        
+        gallina1.idGallina = 1;
+        gallina1.edad = 5;
+        gallina1.huevosPuestos = 0;
+        
+        gallina2.idGallina = 2;
+        gallina2.edad = 6;
+        gallina2.huevosPuestos = 0;
+        
+        gallina1.mostrarEstado();
+        gallina2.mostrarEstado();
+        
+        gallina1.ponerHuevos();
+        gallina1.ponerHuevos();
+        gallina1.envejecer();
+        gallina1.ponerHuevos();
+        
+        gallina2.ponerHuevos();
+        gallina2.envejecer();
+        gallina1.ponerHuevos();
+        
+        gallina1.mostrarEstado();
+        gallina2.mostrarEstado();
+    }
+}
