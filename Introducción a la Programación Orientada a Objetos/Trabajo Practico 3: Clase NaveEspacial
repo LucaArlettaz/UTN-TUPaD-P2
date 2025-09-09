@@ -1,0 +1,40 @@
+public class NaveEspacial {
+    String nombre;
+    int combustible;
+    int limiteCombustible = 100;
+    
+    
+    void despegar() {
+        if (combustible >= 10) {
+            combustible = combustible - 10; // para despegar gasta 10 de combustible
+            System.out.println(nombre + " despego y gasto 10 de combustible.");
+        } else {
+            System.out.println("No hay suficiente combustible para despegar.");
+        }
+    }
+
+    void avanzar(int distancia) {
+        int consumo = distancia * 3; // significa que se gasta 3 de combustible por km
+        if (combustible >= consumo) {
+            combustible -= consumo;
+            System.out.println(nombre + " avanzo " + distancia + " km y gasto " + consumo + " de combustible.");
+        } else {
+            System.out.println("Combustible insuficiente para avanzar " + distancia + " km.");
+        }
+    }
+
+    void recargarCombustible(int cantidad) {
+        if (combustible + cantidad > limiteCombustible) {
+            combustible = limiteCombustible;
+            System.out.println("Se recargo al maximo. No se puede exceder de 100.");
+        } else {
+            combustible += cantidad;
+            System.out.println("Se recargo " + cantidad + " de combustible.");
+        }
+    }
+
+    void mostrarEstado() {
+        System.out.println("Nave: " + nombre);
+        System.out.println("Combustible actual: " + combustible + "/" + limiteCombustible);
+    }
+}
