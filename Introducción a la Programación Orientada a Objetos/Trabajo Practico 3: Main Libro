@@ -1,0 +1,15 @@
+public class Principal {
+
+    public static void main(String[] args) {
+        Libro libro1 = new Libro();
+        
+        libro1.setTitulo("Fahrenheit 451");
+        libro1.setAutor("Ray Bradbury");
+        libro1.setAñoPublicacion(-1354);
+        libro1.mostrarInfo();
+        libro1.setAñoPublicacion(2030);
+        libro1.mostrarInfo();
+        libro1.setAñoPublicacion(1953);
+        libro1.mostrarInfo();
+    }
+}
