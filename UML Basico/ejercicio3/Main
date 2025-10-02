@@ -1,0 +1,16 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Autor autor = new Autor("Gabriel García Márquez", "Colombiano");
+        Editorial editorial = new Editorial("Sudamericana", "Buenos Aires");
+        Libro libro = new Libro("Cien Años de Soledad", "978-0307474728", autor, editorial);
+
+        System.out.println(libro);
+        System.out.println("Autor del libro: " + libro.getAutor());
+        System.out.println("Editorial del libro: " + libro.getEditorial());
+    }
+    
+}
