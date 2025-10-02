@@ -1,0 +1,15 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Bateria bateria = new Bateria("Xiaomi 365", 6000);
+        Usuario usuario = new Usuario("Rafael Arlettaz", "29876543");
+        Celular celular = new Celular("123456789", "Xiaomi", "Redmi Note 13", bateria, usuario);
+
+        System.out.println(celular);
+        System.out.println("Usuario accede a su celular: " + usuario.getCelular());
+    }
+    
+}
