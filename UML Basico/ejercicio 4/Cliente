@@ -1,0 +1,50 @@
+class Cliente {
+    private String nombre;
+    private String dni;
+    private List<TarjetaDeCredito> tarjetas;
+
+    public Cliente(String nombre, String dni) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.tarjetas = new ArrayList<>();
+    }
+
+    public void agregarTarjeta(TarjetaDeCredito tarjeta) {
+        boolean existe = false;
+        for (TarjetaDeCredito t : tarjetas) {
+            if (t == tarjeta) {
+                existe = true;
+                break;
+            }
+        }
+        if (!existe) {
+            tarjetas.add(tarjeta);
+        }
+    }
+
+    public boolean tieneTarjeta(TarjetaDeCredito tarjeta) {
+        for (TarjetaDeCredito t : tarjetas) {
+            if (t == tarjeta) return true;
+        }
+        return false;
+    }
+
+    public void listarTarjetas() {
+        System.out.println("Tarjetas de " + nombre + ":");
+        for (TarjetaDeCredito t : tarjetas) {
+            System.out.println("- " + t.getNumero() + " | Vence: " + t.getFechaVencimiento() + " | Banco: " + t.getBanco().getNombre());
+        }
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Cliente: " + nombre + ", DNI: " + dni);
+    }
+}
