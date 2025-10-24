@@ -1,0 +1,3 @@
+public interface PagoConDescuento {
+    void aplicarDescuento(double porcentaje);
+}
