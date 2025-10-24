@@ -1,0 +1,15 @@
+class EmpleadoPlanta extends Empleado {
+    private double sueldoBase;
+    private int antiguedad;
+
+    public EmpleadoPlanta(String nombre, String apellido, String dni, double sueldoBase, int antiguedad) {
+        super(nombre, apellido, dni);
+        this.sueldoBase = sueldoBase;
+        this.antiguedad = antiguedad;
+    }
+
+    @Override
+    public double calcularSueldo() {
+        return sueldoBase + (antiguedad * 1000);
+    }
+}
