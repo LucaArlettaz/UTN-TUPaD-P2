@@ -1,0 +1,34 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Banco banco1 = new Banco("Banco Nacion", "30-12345678-9");
+
+        Cliente cliente1 = new Cliente("Juan Perez", "12345678");
+        Cliente cliente2 = new Cliente("Ana Lopez", "87654321");
+
+        TarjetaDeCredito tarjeta1 = new TarjetaDeCredito("1111-2222-3333-4444", "12/25", banco1);
+        TarjetaDeCredito tarjeta2 = new TarjetaDeCredito("5555-6666-7777-8888", "06/24", banco1);
+
+        // Asignamos tarjetas a clientes
+        tarjeta1.setCliente(cliente1);
+        tarjeta2.setCliente(cliente1);
+
+        TarjetaDeCredito tarjeta3 = new TarjetaDeCredito("9999-0000-1111-2222", "09/26", banco1);
+        tarjeta3.setCliente(cliente2);
+
+        // Mostramos info de clientes y sus tarjetas
+        cliente1.mostrarInfo();
+        cliente1.listarTarjetas();
+
+        cliente2.mostrarInfo();
+        cliente2.listarTarjetas();
+
+        // Mostramos info de tarjetas individualmente
+        tarjeta1.mostrarInfo();
+        tarjeta2.mostrarInfo();
+        tarjeta3.mostrarInfo();
+    }
+}
