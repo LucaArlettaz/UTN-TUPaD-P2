@@ -1,0 +1,35 @@
+class Reserva {
+    private String fecha;
+    private String hora;
+    private Cliente cliente;
+    private Mesa mesa;
+
+    public Reserva(String fecha, String hora, Cliente cliente, Mesa mesa) {
+        this.fecha = fecha;
+        this.hora = hora;
+        this.cliente = cliente;
+        this.mesa = mesa;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Reserva - Fecha: " + fecha + ", Hora: " + hora);
+        System.out.println("Cliente: " + cliente.getNombre() + ", Tel: " + cliente.getTelefono());
+        System.out.println("Mesa: " + mesa.getNumero() + " (Capacidad: " + mesa.getCapacidad() + ")");
+    }
+}
