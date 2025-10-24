@@ -1,0 +1,15 @@
+public class TarjetaCredito implements Pago, PagoConDescuento {
+    private double totalPagado;
+
+    @Override
+    public void procesarPago(double monto) {
+        totalPagado += monto;
+        System.out.println("Pago con tarjeta procesado: $" + monto);
+    }
+
+    @Override
+    public void aplicarDescuento(double porcentaje) {
+        totalPagado -= totalPagado * (porcentaje / 100);
+        System.out.println("Descuento aplicado: " + porcentaje + "%");
+    }
+}
