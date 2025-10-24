@@ -1,0 +1,45 @@
+class Conductor {
+    private String nombre;
+    private String licencia;
+    private List<Vehiculo> vehiculos;
+
+    public Conductor(String nombre, String licencia) {
+        this.nombre = nombre;
+        this.licencia = licencia;
+        this.vehiculos = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getLicencia() {
+        return licencia;
+    }
+
+    public List<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void agregarVehiculo(Vehiculo v) {
+        if (!vehiculos.contains(v)) {
+            vehiculos.add(v);
+            v.agregarConductor(this);
+        }
+    }
+
+    public void eliminarVehiculo(Vehiculo v) {
+        if (vehiculos.contains(v)) {
+            vehiculos.remove(v);
+            v.eliminarConductor(this);
+        }
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Conductor - Nombre: " + nombre + ", Licencia: " + licencia);
+        System.out.println("Vehiculos asignados:");
+        for (Vehiculo v : vehiculos) {
+            System.out.println("  - " + v.getPatente() + " (" + v.getModelo() + ")");
+        }
+    }
+}
