@@ -1,0 +1,13 @@
+public class ValidarEdad {
+    public static void main(String[] args) {
+        int edad = -5; // Valor invalido para poner a prueba
+        try {
+            if(edad < 0 || edad > 120) {
+                throw new EdadInvalidaException("Edad inválida: " + edad);
+            }
+            System.out.println("Edad válida: " + edad);
+        } catch (EdadInvalidaException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
