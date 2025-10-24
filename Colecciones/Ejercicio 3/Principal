@@ -1,0 +1,68 @@
+public class Principal {
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Creamos al menos 3 profesores
+        Profesor prof1 = new Profesor("P01", "Ana López", "Matemáticas");
+        Profesor prof2 = new Profesor("P02", "Carlos Pérez", "Física");
+        Profesor prof3 = new Profesor("P03", "Lucía Gómez", "Literatura");
+
+        // Creamos 5 cursos
+        Curso curso1 = new Curso("C101", "Álgebra");
+        Curso curso2 = new Curso("C102", "Cálculo");
+        Curso curso3 = new Curso("C201", "Física I");
+        Curso curso4 = new Curso("C301", "Literatura Clásica");
+        Curso curso5 = new Curso("C302", "Gramática Avanzada");
+
+        // Creamos Universidad
+        Universidad uni = new Universidad("Universidad Nacional");
+
+        // Agregamos profesores y cursos a la universidad
+        uni.agregarProfesor(prof1);
+        uni.agregarProfesor(prof2);
+        uni.agregarProfesor(prof3);
+
+        uni.agregarCurso(curso1);
+        uni.agregarCurso(curso2);
+        uni.agregarCurso(curso3);
+        uni.agregarCurso(curso4);
+        uni.agregarCurso(curso5);
+
+        // Asignamos profesores a los cursos
+        uni.asignarProfesorACurso("C101", "P01"); // Álgebra  Ana
+        uni.asignarProfesorACurso("C102", "P01"); // Cálculo  Ana
+        uni.asignarProfesorACurso("C201", "P02"); // Física I  Carlos
+        uni.asignarProfesorACurso("C301", "P03"); // Literatura Clásica  Lucía
+        uni.asignarProfesorACurso("C302", "P03"); // Gramática Avanzada  Lucía
+
+        System.out.println("\n--- LISTADO INICIAL DE CURSOS Y PROFESORES ---");
+        uni.listarCursos();
+        uni.listarProfesores();
+
+        // Cambiamos el profesor de un curso
+        System.out.println("\n--- CAMBIO DE PROFESOR: Cálculo pasa a Carlos ---");
+        uni.asignarProfesorACurso("C102", "P02"); // Cálculo → Carlos
+        uni.listarCursos();
+        uni.listarProfesores();
+
+        // Removemos un curso
+        System.out.println("\n--- ELIMINAR CURSO: Física I ---");
+        uni.eliminarCurso("C201");
+        uni.listarCursos();
+        uni.listarProfesores();
+
+        // Removemos un profesor
+        System.out.println("\n--- ELIMINAR PROFESOR: Lucía ---");
+        uni.eliminarProfesor("P03");
+        uni.listarCursos();
+        uni.listarProfesores();
+
+        // Reporte: cantidad de cursos por profesor
+        System.out.println("\n--- REPORTE DE CURSOS POR PROFESOR ---");
+        for (Profesor p : new Profesor[]{prof1, prof2, prof3}) {
+            System.out.println(p.getNombre() + " dicta " + p.getCursos().size() + " curso(s).");
+        }
+    }
+}
