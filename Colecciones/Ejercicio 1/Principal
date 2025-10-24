@@ -1,0 +1,55 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Inventario inventario = new Inventario();
+
+        // Creamos productos
+        Producto p1 = new Producto("P001", "Arroz", 1500, 50, CategoriaProducto.ALIMENTOS);
+        Producto p2 = new Producto("P002", "TV 55''", 2500, 10, CategoriaProducto.ELECTRONICA);
+        Producto p3 = new Producto("P003", "Remera", 1200, 30, CategoriaProducto.ROPA);
+        Producto p4 = new Producto("P004", "Licuadora", 3500, 5, CategoriaProducto.HOGAR);
+        Producto p5 = new Producto("P005", "Queso", 800, 20, CategoriaProducto.ALIMENTOS);
+
+        // Agregamos al inventario
+        inventario.agregarProducto(p1);
+        inventario.agregarProducto(p2);
+        inventario.agregarProducto(p3);
+        inventario.agregarProducto(p4);
+        inventario.agregarProducto(p5);
+
+        // Listamos productos
+        System.out.println("=== Listado completo de productos ===");
+        inventario.listarProductos();
+
+        // Buscamos por ID
+        System.out.println("\n=== Buscar producto P003 ===");
+        Producto buscado = inventario.buscarProductoPorId("P003");
+        if (buscado != null) buscado.mostrarInfo();
+
+        // Filtramos por categoría
+        System.out.println("\n=== Filtrar ELECTRONICA ===");
+        inventario.filtrarPorCategoria(CategoriaProducto.ELECTRONICA);
+
+        // Actualizamos stock
+        inventario.actualizarStock("P002", 15);
+
+        // Total stock
+        System.out.println("\nTotal stock disponible: " + inventario.obtenerTotalStock());
+
+        // Producto con mayor stock
+        System.out.println("\nProducto con mayor stock:");
+        Producto mayorStock = inventario.obtenerProductoConMayorStock();
+        if (mayorStock != null) mayorStock.mostrarInfo();
+
+        // Filtramos por precio
+        System.out.println("\n=== Productos entre $1000 y $3000 ===");
+        inventario.filtrarProductosPorPrecio(1000, 3000);
+
+        // Mostramos las categorías disponibles
+        System.out.println("\n=== Categorías disponibles ===");
+        inventario.mostrarCategoriasDisponibles();
+    }
+    }
