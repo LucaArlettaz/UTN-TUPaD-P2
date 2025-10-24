@@ -1,0 +1,19 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Animal[] animales = {
+            new Perro("Shaka", 5),
+            new Gato("Michi", 3),
+            new Vaca("Lola", 7)
+        };
+
+        for (Animal a : animales) {
+            a.describirAnimal();
+            a.hacerSonido();
+            System.out.println("---------------------");
+        }
+    }
+}
