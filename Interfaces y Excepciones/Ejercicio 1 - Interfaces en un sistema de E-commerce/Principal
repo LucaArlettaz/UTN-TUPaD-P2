@@ -1,0 +1,26 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente("Luca");
+        Producto p1 = new Producto("Notebook", 25000);
+        Producto p2 = new Producto("Mouse", 2500);
+
+        Pedido pedido = new Pedido(cliente1);
+        pedido.agregarProducto(p1);
+        pedido.agregarProducto(p2);
+
+        pedido.mostrarPedido();
+
+        pedido.cambiarEstado("Pagado");
+
+        TarjetaCredito tarjeta = new TarjetaCredito();
+        tarjeta.procesarPago(pedido.calcularTotal());
+        tarjeta.aplicarDescuento(10);
+
+        PayPal paypal = new PayPal();
+        paypal.procesarPago(pedido.calcularTotal());
+    }
+}
