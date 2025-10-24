@@ -1,0 +1,47 @@
+public class Curso {
+    private String codigo;
+    private String nombre;
+    private Profesor profesor;
+
+    public Curso(String codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.profesor = null;
+    }
+
+    public String getCodigo() { return codigo; }
+    public String getNombre() { return nombre; }
+    public Profesor getProfesor() { return profesor; }
+
+    public void setProfesor(Profesor p) {
+        if (profesor != null) {
+            ArrayList<Curso> cursosActual = profesor.getCursos();
+            ArrayList<Curso> nuevosCursos = new ArrayList<>();
+            for (Curso c : cursosActual) {
+                if (!c.getCodigo().equals(this.codigo)) {
+                    nuevosCursos.add(c);
+                }
+            }
+            profesor.setCursos(nuevosCursos);
+        }
+
+        profesor = p;
+
+        if (p != null) {
+            boolean existe = false;
+            for (Curso c : p.getCursos()) {
+                if (c.getCodigo().equals(this.codigo)) {
+                    existe = true;
+                }
+            }
+            if (!existe) {
+                p.agregarCurso(this);
+            }
+        }
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Código: " + codigo + ", Nombre: " + nombre +
+            ", Profesor: " + (profesor != null ? profesor.getNombre() : "Sin asignar"));
+    }
+}
