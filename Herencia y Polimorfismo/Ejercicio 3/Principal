@@ -1,0 +1,24 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Empleado[] empleados = {
+            new EmpleadoPlanta("Lucia", "Perez", "12345678", 200000, 5),
+            new EmpleadoTemporal("Tomas", "Gomez", "87654321", 120, 1500),
+            new EmpleadoPlanta("Sofia", "Martinez", "45678912", 180000, 2)
+        };
+
+        for (Empleado emp : empleados) {
+            emp.mostrarInfo();
+            System.out.println("Sueldo: $" + emp.calcularSueldo());
+
+            if (emp instanceof EmpleadoPlanta) {
+                System.out.println("Tipo: Empleado de Planta\n");
+            } else if (emp instanceof EmpleadoTemporal) {
+                System.out.println("Tipo: Empleado Temporal\n");
+            }
+        }
+    }
+}
