@@ -1,0 +1,45 @@
+public class Principal {
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Creamos biblioteca
+        Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
+
+        // Creamos autores
+        Autor autor1 = new Autor("A001", "Gabriel García Márquez", "Colombiano");
+        Autor autor2 = new Autor("A002", "J.K. Rowling", "Británica");
+        Autor autor3 = new Autor("A003", "George Orwell", "Británico");
+
+        // Agregamos 5 libros
+        biblioteca.agregarLibro("L001", "Cien Años de Soledad", 1967, autor1);
+        biblioteca.agregarLibro("L002", "Harry Potter y la Piedra Filosofal", 1997, autor2);
+        biblioteca.agregarLibro("L003", "1984", 1949, autor3);
+        biblioteca.agregarLibro("L004", "El Coronel No Tiene Quien le Escriba", 1961, autor1);
+        biblioteca.agregarLibro("L005", "Harry Potter y la Cámara Secreta", 1998, autor2);
+
+        // Listamos todos los libros
+        biblioteca.listarLibros();
+
+        // Buscamos libro por ISBN
+        System.out.println("Buscando libro con ISBN L003:");
+        Libro buscado = biblioteca.buscarLibroPorIsbn("L003");
+        if (buscado != null) {
+            buscado.mostrarInfo();
+        }
+
+        // Filtramos libros por año
+        biblioteca.filtrarLibrosPorAnio(1997);
+
+        // Eliminamos libro por ISBN
+        biblioteca.eliminarLibro("L004");
+        biblioteca.listarLibros();
+
+        // Mostramos cantidad total de libros
+        System.out.println("Cantidad total de libros: " + biblioteca.obtenerCantidadLibros());
+
+        // Listamos autores disponibles
+        biblioteca.mostrarAutoresDisponibles();
+    }
+}
