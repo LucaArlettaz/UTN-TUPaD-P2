@@ -1,0 +1,20 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        ArrayList<Figura> figuras = new ArrayList<>();
+
+        figuras.add(new Circulo("Circulo A", 5.5));
+        figuras.add(new Rectangulo("Rectangulo B", 4.0, 3.0));
+        figuras.add(new Circulo("Circulo C", 2.8));
+        figuras.add(new Rectangulo("Rectangulo D", 10.0, 2.5));
+
+        System.out.println("=== AREAS DE LAS FIGURAS ===");
+        for (Figura f : figuras) {
+            f.mostrarInfo(); // Polimorfismo aplicado
+            System.out.println("----------------------------");
+        }
+    }
+}
