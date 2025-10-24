@@ -1,0 +1,48 @@
+class Vehiculo {
+    private String patente;
+    private String modelo;
+    private Motor motor; // Agregación
+    private List<Conductor> conductores; // Asociación bidireccional
+
+    public Vehiculo(String patente, String modelo, Motor motor) {
+        this.patente = patente;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.conductores = new ArrayList<>();
+    }
+
+    public String getPatente() {
+        return patente;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public List<Conductor> getConductores() {
+        return conductores;
+    }
+
+    public void agregarConductor(Conductor c) {
+        if (!conductores.contains(c)) {
+            conductores.add(c);
+        }
+    }
+
+    public void eliminarConductor(Conductor c) {
+        conductores.remove(c);
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Vehiculo - Patente: " + patente + ", Modelo: " + modelo);
+        motor.mostrarInfo();
+        System.out.println("Conductores asignados:");
+        for (Conductor c : conductores) {
+            System.out.println("  - " + c.getNombre() + " (Licencia: " + c.getLicencia() + ")");
+        }
+    }
+}
