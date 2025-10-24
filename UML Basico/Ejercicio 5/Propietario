@@ -1,0 +1,43 @@
+class Propietario {
+    private String nombre;
+    private String dni;
+    private List<Computadora> computadoras;
+
+    public Propietario(String nombre, String dni) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.computadoras = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void agregarComputadora(Computadora c) {
+        computadoras.add(c);
+    }
+
+    public boolean tieneComputadora(Computadora c) {
+        for (Computadora comp : computadoras) {
+            if (comp == c) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void listarComputadoras() {
+        System.out.println("Computadoras de " + nombre + ":");
+        for (Computadora c : computadoras) {
+            System.out.println("- " + c.getMarca() + " - " + c.getNumeroSerie());
+        }
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Propietario - Nombre: " + nombre + ", DNI: " + dni);
+    }
+}
