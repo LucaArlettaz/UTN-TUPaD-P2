@@ -1,0 +1,21 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Cliente c1 = new Cliente("Luca", "12345678");
+        Cliente c2 = new Cliente("Maria", "87654321");
+
+        Mesa m1 = new Mesa(1, 4);
+        Mesa m2 = new Mesa(2, 6);
+
+        Reserva r1 = new Reserva("2025-10-25", "20:00", c1, m1);
+        Reserva r2 = new Reserva("2025-10-25", "21:00", c2, m2);
+
+        // Mostramos reservas
+        r1.mostrarInfo();
+        System.out.println();
+        r2.mostrarInfo();
+    }
+  } 
