@@ -1,0 +1,19 @@
+public class Principal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         // Creamos un usuario
+        Usuario usuario = new Usuario("Juan Perez", "juan.perez@email.com");
+
+        // Creamos una firma digital asociada al usuario
+        FirmaDigital firma = new FirmaDigital("ABC123XYZ", "24/10/2025", usuario);
+
+        // Creamos un documento con la firma digital
+        Documento doc = new Documento("Contrato de Trabajo", "Contenido del contrato...", firma);
+
+        // Mostramos la información del documento y sus relaciones
+        doc.mostrarInfo();
+    }
+}
