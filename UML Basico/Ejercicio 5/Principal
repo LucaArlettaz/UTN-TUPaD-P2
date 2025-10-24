@@ -1,0 +1,30 @@
+public class Principal {
+  
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        PlacaMadre pm1 = new PlacaMadre("ASUS B450M", "B450");
+        Computadora comp1 = new Computadora("HP", "12345", pm1);
+
+        PlacaMadre pm2 = new PlacaMadre("Gigabyte Z490", "Z490");
+        Computadora comp2 = new Computadora("Dell", "67890", pm2);
+
+        Propietario p1 = new Propietario("Luca", "12345678");
+        Propietario p2 = new Propietario("Maria", "87654321");
+
+        // Asignamos propietarios
+        comp1.setPropietario(p1);
+        comp2.setPropietario(p2);
+
+        // Mostramos información
+        comp1.mostrarInfo();
+        System.out.println();
+        comp2.mostrarInfo();
+        System.out.println();
+
+        // Listamos computadoras de cada propietario
+        p1.listarComputadoras();
+        p2.listarComputadoras();
+    }
+}
